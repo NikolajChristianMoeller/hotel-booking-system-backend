@@ -70,7 +70,8 @@ public class GuestService {
     }
 
     public GuestDTO deleteGuest(Long id) {
-        Guest guest = guestRepository.findById(id).orElseThrow(() -> new NotFoundException("Guest not found, provided id: " + id));
+        Guest guest = guestRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Guest not found, provided id: " + id));
         GuestDTO guestDTO = toDTO(guest);
         guestRepository.deleteById(id);
         return guestDTO;

@@ -17,9 +17,8 @@ public class HotelDTO {
         private String name;
         private String street;
         private Double streetNumber;
-        @Enumerated(EnumType.STRING)
-        private City city;
-        private int zip;
+        private String city;
+        private String zip;
         @Enumerated(EnumType.STRING)
         private Country country;
         private LocalDateTime created;

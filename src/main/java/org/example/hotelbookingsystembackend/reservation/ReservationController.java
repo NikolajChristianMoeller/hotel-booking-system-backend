@@ -15,27 +15,27 @@ public class ReservationController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ResReservationDTO>> getAllReservations () {
+    public ResponseEntity<List<ReservationDTO>> getAllReservations () {
         return ResponseEntity.ok(reservationService.getAllReservations());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ResReservationDTO> getReservationById(@PathVariable Long id) {
+    public ResponseEntity<ReservationDTO> getReservationById(@PathVariable Long id) {
         return ResponseEntity.of(reservationService.getReservationById(id));
     }
 
     @PostMapping
-    public ResponseEntity<ResReservationDTO> createReservation (@RequestBody ReqReservationDTO reqReservationDTO) {
-        return ResponseEntity.status(201).body(reservationService.createReservation(reqReservationDTO));
+    public ResponseEntity<ReservationDTO> createReservation (@RequestBody ReservationDTO ReservationDTO) {
+        return ResponseEntity.status(201).body(reservationService.createReservation(ReservationDTO));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ResReservationDTO> updateReservation (@PathVariable Long id, @RequestBody ReqReservationDTO reqReservationDTO) {
-        return ResponseEntity.ok(reservationService.updateReservation(id, reqReservationDTO));
+    public ResponseEntity<ReservationDTO> updateReservation (@PathVariable Long id, @RequestBody ReservationDTO ReservationDTO) {
+        return ResponseEntity.ok(reservationService.updateReservation(id, ReservationDTO));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ResReservationDTO> deleteReservation (@PathVariable Long id) {
+    public ResponseEntity<ReservationDTO> deleteReservation (@PathVariable Long id) {
         return ResponseEntity.ok(reservationService.deleteReservation(id));
     }
 

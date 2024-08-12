@@ -9,10 +9,10 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ResReservationDTO {
+public class ReservationDTO {
     private long id;
-    private String guestName;
-    private int roomNumber;
+    private Long guestId;
+    private Long roomId;
     private LocalDate reservationDate;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
