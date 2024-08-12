@@ -26,6 +26,7 @@ public class Room {
     private LocalDateTime created;
     @Column(nullable = false)
     private LocalDateTime updated;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "hotel_id")
     private Hotel hotel;
