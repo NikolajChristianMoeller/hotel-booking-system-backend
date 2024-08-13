@@ -62,7 +62,7 @@ public class ReservationService {
         }
 
         Guest guest = guestRepository.findById(ReservationDTO.getGuestId())
-            .orElseThrow(() -> new NotFoundException("GuestNotFount"));
+            .orElseThrow(() -> new NotFoundException("Guest not Found"));
 
         Room room = roomRepository.findById(ReservationDTO.getRoomId())
             .orElseThrow(() -> new NotFoundException("Room not found "));

@@ -28,9 +28,7 @@ public class Hotel {
     private String zip;
     @Enumerated(EnumType.STRING)
     private Country country;
-    @Column(nullable = false, updatable = false)
     private LocalDateTime created;
-    @Column(nullable = false)
     private LocalDateTime updated;
     @OneToMany(fetch = FetchType.EAGER)
     private List<Room> rooms = new ArrayList<>();

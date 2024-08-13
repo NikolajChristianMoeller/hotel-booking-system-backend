@@ -13,13 +13,10 @@ import java.util.List;
 public class GuestDTO {
 
         private Long id;
-        private Double userName;
+        private String userName;
         private String fullName;
         private String email;
-        private Double phoneNumber;
+        private String phoneNumber;
         private LocalDateTime created;
         private LocalDateTime updated;
-        private List<GuestDTO> guests;
-
-
 }

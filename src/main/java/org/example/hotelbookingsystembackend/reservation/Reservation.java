@@ -19,16 +19,12 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private long id;
+    private Long id;
     private LocalDate reservationDate;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
-
-    @Column(nullable = false, updatable = false)
     private LocalDateTime created;
-    @Column(nullable = false)
     private LocalDateTime updated;
-
     @ManyToOne(fetch = FetchType.EAGER)
     private Guest guest;
     @ManyToOne(fetch = FetchType.EAGER)

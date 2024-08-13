@@ -17,12 +17,10 @@ public class Guest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
-    private Double userName;
+    private String userName;
     private String fullName;
     private String email;
-    private Double phoneNumber;
-    @Column(nullable = false, updatable = false)
+    private String phoneNumber;
     private LocalDateTime created;
-    @Column(nullable = false)
     private LocalDateTime updated;
 }
