@@ -11,7 +11,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class GuestDTO {
-
         private Long id;
         private String userName;
         private String fullName;

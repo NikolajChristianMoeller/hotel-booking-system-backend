@@ -16,5 +16,4 @@ public class ReservationDTO {
     private LocalDate reservationDate;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
-
 }

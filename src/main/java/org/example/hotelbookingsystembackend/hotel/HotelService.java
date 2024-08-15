@@ -19,7 +19,7 @@ public class HotelService {
         HotelDTO hotelDTO = new HotelDTO();
         hotelDTO.setId(hotel.getId());
         hotelDTO.setName(hotel.getName());
-        hotelDTO.setStreet(hotel.getStreet());
+        hotelDTO.setAddress(hotel.getAddress());
         hotelDTO.setCity(hotel.getCity());
         hotelDTO.setZip(hotel.getZip());
         hotelDTO.setCountry(hotel.getCountry());
@@ -49,8 +49,7 @@ public class HotelService {
     public HotelDTO createHotel(HotelDTO hotelDTO) {
         Hotel hotel = new Hotel();
         hotel.setName(hotelDTO.getName());
-        hotel.setStreet(hotelDTO.getStreet());
-        hotel.setStreetNumber(hotelDTO.getStreetNumber());
+        hotel.setAddress(hotelDTO.getAddress());
         hotel.setCity(hotelDTO.getCity());
         hotel.setZip(hotelDTO.getZip());
         hotel.setCountry(hotelDTO.getCountry());
@@ -62,8 +61,7 @@ public class HotelService {
     public HotelDTO updateHotel(Long id, HotelDTO hotelDTO) {
         return hotelRepository.findById(id).map(hotel -> {
             hotel.setName(hotelDTO.getName());
-            hotel.setStreet(hotelDTO.getStreet());
-            hotel.setStreetNumber(hotelDTO.getStreetNumber());
+            hotel.setAddress(hotelDTO.getAddress());
             hotel.setCity(hotelDTO.getCity());
             hotel.setZip(hotelDTO.getZip());
             hotel.setCountry(hotelDTO.getCountry());

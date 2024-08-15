@@ -1,6 +1,5 @@
 package org.example.hotelbookingsystembackend.hotel;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,8 +21,7 @@ public class Hotel {
 
     private Long id;
     private String name;
-    private String street;
-    private Double streetNumber;
+    private String address;
     private String city;
     private String zip;
     @Enumerated(EnumType.STRING)

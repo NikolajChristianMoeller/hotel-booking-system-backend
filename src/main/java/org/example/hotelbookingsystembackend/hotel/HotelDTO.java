@@ -12,11 +12,9 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 public class HotelDTO {
-
         private Long id;
         private String name;
-        private String street;
-        private Double streetNumber;
+        private String address;
         private String city;
         private String zip;
         @Enumerated(EnumType.STRING)
@@ -24,5 +22,11 @@ public class HotelDTO {
         private LocalDateTime created;
         private LocalDateTime updated;
 
-
+        public HotelDTO(String name, String address, String city, String zip, Country country) {
+                this.name = name;
+                this.address = address;
+                this.city = city;
+                this.zip = zip;
+                this.country = country;
+        }
 }
