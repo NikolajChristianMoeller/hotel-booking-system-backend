@@ -17,12 +17,12 @@ public class HotelDTO {
         private String address;
         private String city;
         private String zip;
-        @Enumerated(EnumType.STRING)
-        private Country country;
+        private String country;
         private LocalDateTime created;
         private LocalDateTime updated;
+        private int numberOfRooms;
 
-        public HotelDTO(String name, String address, String city, String zip, Country country) {
+        public HotelDTO(String name, String address, String city, String zip, String country) {
                 this.name = name;
                 this.address = address;
                 this.city = city;

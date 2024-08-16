@@ -1,6 +1,5 @@
 package org.example.hotelbookingsystembackend.configuration;
 
-import org.example.hotelbookingsystembackend.hotel.Country;
 import org.example.hotelbookingsystembackend.hotel.HotelDTO;
 import org.example.hotelbookingsystembackend.hotel.HotelService;
 import org.example.hotelbookingsystembackend.room.RoomDTO;
@@ -20,14 +19,19 @@ public class InitData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        for (int i = 1; i <= 250; i++) {
-            System.out.println("Creating hotel " + i);
-            HotelDTO hotelDTO = createHotel(i);
-            int numberOfRooms = (int) (Math.random() * 30) + 10;
-            System.out.println("Creating " + numberOfRooms + " rooms in hotel " + hotelDTO.getName());
-            createRoomsInHotel(numberOfRooms, hotelDTO);
+        if (hotelService.getAllHotels().isEmpty()) {
+            System.out.println("Creating hotels and rooms");
+            for (int i = 1; i <= 250; i++) {
+                //System.out.println("Creating hotel " + i);
+                HotelDTO hotelDTO = createHotel(i);
+                int numberOfRooms = (int) (Math.random() * 30) + 10;
+                //System.out.println("Creating " + numberOfRooms + " rooms in hotel " + hotelDTO.getName());
+                createRoomsInHotel(numberOfRooms, hotelDTO);
+            }
+            System.out.println("Done creating hotels and rooms");
+        } else {
+            System.out.println("Hotels and rooms already exist");
         }
-        System.out.println("Done creating hotels and rooms");
     }
 
     private HotelDTO createHotel(int number){
@@ -36,7 +40,7 @@ public class InitData implements CommandLineRunner {
                 "Address " + number,
                 "City " + number,
                 "Zip " + number,
-                Country.Denmark
+                "DANMARK"
         );
 
         HotelDTO nyDTO = hotelService.createHotel(hotel);
@@ -52,10 +56,6 @@ public class InitData implements CommandLineRunner {
                 100.0
 
         );
-        String bedWord = numberOfBeds > 1 ? "beds" : "bed";
-
-        System.out.println("Created " + room.getRoomNumber() + " in " + hotel.getName() +
-                " with " + numberOfBeds + " "+ bedWord + ".");
         roomService.createRoom(room);
     }
 

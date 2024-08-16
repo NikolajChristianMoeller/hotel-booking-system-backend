@@ -25,7 +25,18 @@ public class HotelService {
         hotelDTO.setCountry(hotel.getCountry());
         hotelDTO.setCreated(hotel.getCreated());
         hotelDTO.setUpdated(hotel.getUpdated());
+        hotelDTO.setNumberOfRooms(hotel.getRooms().size());
         return hotelDTO;
+    }
+
+    private Hotel toEntity(HotelDTO hotelDTO) {
+        Hotel hotel = new Hotel();
+        hotel.setName(hotelDTO.getName());
+        hotel.setAddress(hotelDTO.getAddress());
+        hotel.setCity(hotelDTO.getCity());
+        hotel.setZip(hotelDTO.getZip());
+        hotel.setCountry(hotelDTO.getCountry());
+        return hotel;
     }
 
     public List<HotelDTO> getAllHotels() {
@@ -47,14 +58,7 @@ public class HotelService {
     }
 
     public HotelDTO createHotel(HotelDTO hotelDTO) {
-        Hotel hotel = new Hotel();
-        hotel.setName(hotelDTO.getName());
-        hotel.setAddress(hotelDTO.getAddress());
-        hotel.setCity(hotelDTO.getCity());
-        hotel.setZip(hotelDTO.getZip());
-        hotel.setCountry(hotelDTO.getCountry());
-        hotel.setCreated(hotelDTO.getCreated());
-        hotel.setUpdated(hotelDTO.getUpdated());
+        Hotel hotel = toEntity(hotelDTO);
         return toDTO(hotelRepository.save(hotel));
     }
 
