@@ -3,18 +3,22 @@ package org.example.hotelbookingsystembackend.configuration;
 import org.example.hotelbookingsystembackend.hotel.HotelDTO;
 import org.example.hotelbookingsystembackend.hotel.HotelService;
 import org.example.hotelbookingsystembackend.room.RoomDTO;
+import org.example.hotelbookingsystembackend.room.RoomRepository;
 import org.example.hotelbookingsystembackend.room.RoomService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
 
 @Component
 public class InitData implements CommandLineRunner {
     private final HotelService hotelService;
     private final RoomService roomService;
+    private final RoomRepository roomRepository;
 
-    public InitData(HotelService hotelService, RoomService roomService) {
+    public InitData(HotelService hotelService, RoomService roomService, RoomRepository roomRepository) {
         this.hotelService = hotelService;
         this.roomService = roomService;
+        this.roomRepository = roomRepository;
     }
 
     @Override
@@ -57,12 +61,22 @@ public class InitData implements CommandLineRunner {
 
         );
         roomService.createRoom(room);
+
     }
 
     public void createRoomsInHotel(int numberOfRooms, HotelDTO hotel){
-        for (int i = 1; i <= numberOfRooms; i++) {
-            createRoom(i, hotel);
+        for (int number = 1; number <= numberOfRooms; number++) {
+            int numberOfBeds = (int) (Math.random() * 4) + 1;
+            RoomDTO room = new RoomDTO(
+                    hotel.getId(),
+                    "Room " + number,
+                    numberOfBeds,
+                    100.0
+
+            );
+            roomService.createRoom(room);
         }
+
     }
 
 }

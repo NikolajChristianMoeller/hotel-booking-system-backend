@@ -1,6 +1,5 @@
 package org.example.hotelbookingsystembackend.room;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
