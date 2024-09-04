@@ -72,11 +72,8 @@ public class InitData implements CommandLineRunner {
                     "Room " + number,
                     numberOfBeds,
                     100.0
-
             );
             roomService.createRoom(room);
         }
-
     }
-
 }
